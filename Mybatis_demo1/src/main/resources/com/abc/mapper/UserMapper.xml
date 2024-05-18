@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abc.mapper.UserMapper">
+    <!--int insertUsers();-->
+    <insert id="insertUsers">
+        insert into t_user values(null,'张三','123',23,'女','sadsd')
+    </insert>
+    <insert id="insertUser" >
+        insert into t_user values (null,#{username},#{password},#{age},#{sex},#{email})
+    </insert>
+    <update id="updateUser">
+        update t_user set username = 'a' where id =1
+    </update>
+    <delete id="deleteUser">
+        delete from t_user where id = 1
+    </delete>
+    <select id="getUserList" resultType="com.abc.pojos.User">
+        select * from t_user
+    </select>
+    <select id="getUserByUsername" resultType="com.abc.pojos.User">
+        select * from t_user where username =#{username}
+    </select>
+    <select id="checkLogin" resultType="com.abc.pojos.User">
+        select * from t_user where username=#{arg0} and password = #{arg1}
+    </select>
+    <select id="checkLoginByMap" resultType="com.abc.pojos.User">
+        select * from t_user where username=#{username} and password = #{password}
+    </select>
+    <select id="CheckLoginByParam" resultType="com.abc.pojos.User">
+        select * from t_user where username = #{username} and password = #{password}
+    </select>
+    <select id="getUserByLike" resultType="com.abc.pojos.User">
+        select * from
+    </select>
+</mapper>
